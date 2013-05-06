@@ -9,7 +9,7 @@ get '/' do
 end
 
 post '/commits' do
-  commit = JSON.parse(request.body.read, symbolize_names: true)
+  commit = JSON.parse(params[:payload], symbolize_names: true)
   commits << commit
   erb :index, locals: {commits: commits}
 end
